@@ -18,6 +18,9 @@ vite-dev.*.log
 .env
 .env.*
 !.env.example
+!.env.development
+!.env.test
+!.env.production
 
 # Editor and IDE files
 .idea/
