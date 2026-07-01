@@ -1,0 +1,9 @@
+services:
+  jia-hui-web:
+    build:
+      args:
+        BUILD_MODE: test
+    image: jia-hui-web:test
+    container_name: jia-hui-web-test
+    ports:
+      - "8081:80"

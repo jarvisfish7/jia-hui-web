@@ -1,0 +1,9 @@
+services:
+  jia-hui-web:
+    build:
+      args:
+        BUILD_MODE: production
+    image: jia-hui-web:prod
+    container_name: jia-hui-web-prod
+    ports:
+      - "8080:80"
