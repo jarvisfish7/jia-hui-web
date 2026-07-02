@@ -7,7 +7,7 @@ const activeSlide = ref(0)
 const copy = {
   zh: {
     nav: ['首页', '业务', '痛点', '案例', '流程', '联系'],
-    cta: '获取方案',
+    cta: '发起合作',
     heroEyebrow: 'GUANGZHOU JIA HUI ENTERPRISE MANAGEMENT CO., LTD.',
     heroTitle: ['灵活用工', '现场服务解决方案'],
     heroText:
