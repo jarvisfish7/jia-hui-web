@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        BUILD_MODE: production
     image: jia-hui-web:latest
     container_name: jia-hui-web
     ports:
