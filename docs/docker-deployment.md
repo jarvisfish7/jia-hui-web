@@ -155,3 +155,7 @@ docker image prune
 - `/` 使用 `try_files $uri $uri/ /index.html`，支持 Vue 单页应用刷新和直接访问子路径。
 - 静态资源设置 30 天缓存，并启用 `immutable`。
 - `index.html` 设置 `no-cache`，确保新版本发布后入口文件能及时更新。
+
+
+## 服务器已有部署脚本
+bash deploy.sh prod

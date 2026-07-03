@@ -53,7 +53,7 @@ const copy = {
       },
     ],
     painTitle: '解决痛点',
-    painText: '把企业常见用工问题和对应方案放在一起看，客户能更快判断合作价值。',
+    painText: '从编制、招聘、现场到结算逐项拆解企业用工压力，给出可落地的服务方案。',
     pains: [
       {
         id: '01',
@@ -86,16 +86,16 @@ const copy = {
         text: '费用可统一开具服务费发票，财务入账更灵活。',
       },
     ],
-    quickTitle: '紧急缺人也能快速响应',
+    quickTitle: '把临时用工压力转化为可控交付',
     quickWins: [
-      '快速批量招人，缩短招聘周期，解决紧急缺人。',
-      '应对项目短期需求，项目结束即可终止合作，无长期用工负担。',
-      '转移社保、工伤、劳动合规的监管风险。',
-      '不用扩充正式编制，适配企业人力预算上限。',
-      '减少企业后勤、人事行政配套支出。',
+      '批量招聘与岗位储备同步推进，提升紧急补位效率。',
+      '按项目周期灵活配置人员，淡旺季和短期任务都能收放有序。',
+      '规范劳动关系、合同和服务流程，降低合规管理压力。',
+      '不增加正式编制负担，匹配企业阶段性人力预算。',
+      '统一服务结算与票据管理，让人力成本更清晰可控。',
     ],
-    showcaseTitle: '图片轮播栏',
-    showcaseText: '用轮播图直观呈现现场用工、安保餐饮、物业后勤和项目攻坚场景。',
+    showcaseTitle: '专业能力',
+    showcaseText: '以真实服务场景呈现佳汇在招聘组织、岗位派驻、现场管理与合规结算上的交付能力。',
     slides: [
       {
         tag: '批量招人',
@@ -137,8 +137,8 @@ const copy = {
           '/images/service-property.png',
       },
     ],
-    galleryTitle: '服务展示栏',
-    galleryText: '围绕企业用工全过程，把招聘、派遣、现场和结算能力清晰展示出来。',
+    galleryTitle: '服务能力展示',
+    galleryText: '围绕企业用工全过程，清晰呈现招聘配置、现场派驻、物业后勤与结算支持能力。',
     gallery: [
       {
         title: '批量招聘',
@@ -229,7 +229,7 @@ const copy = {
       },
     ],
     painTitle: 'Pain Points Solved',
-    painText: 'Common workforce problems are paired directly with practical service solutions.',
+    painText: 'Workforce pressure is broken down across headcount, hiring, field delivery and settlement, then matched with practical service responses.',
     pains: [
       {
         id: '01',
@@ -262,16 +262,16 @@ const copy = {
         text: 'Service fees can be invoiced uniformly for more flexible accounting.',
       },
     ],
-    quickTitle: 'Fast response for urgent vacancies',
+    quickTitle: 'Turn temporary staffing pressure into controlled delivery',
     quickWins: [
-      'Recruit in bulk faster and shorten hiring cycles.',
-      'Cover short-term project needs without long-term staffing burden.',
-      'Transfer pressure around social insurance, work injury and labor compliance.',
-      'Avoid expanding formal headcount and fit workforce budget ceilings.',
-      'Reduce backend HR, admin and logistics support spend.',
+      'Run bulk recruitment and reserve pools together for faster urgent fill.',
+      'Scale teams by project cycle so peaks and short-term tasks stay controlled.',
+      'Standardize labor relationships, contracts and service workflows to reduce compliance pressure.',
+      'Support staged workforce budgets without expanding permanent headcount.',
+      'Unify service settlement and invoices so labor costs stay visible.',
     ],
-    showcaseTitle: 'Image Carousel',
-    showcaseText: 'A visual pass through staffing, security, hospitality, property support and project sprint scenes.',
+    showcaseTitle: 'Professional Capabilities',
+    showcaseText: 'Real service scenes highlight delivery strength across recruiting, deployment, field management and compliant settlement.',
     slides: [
       {
         tag: 'Bulk Hiring',
@@ -313,8 +313,8 @@ const copy = {
           '/images/service-property.png',
       },
     ],
-    galleryTitle: 'Service Display',
-    galleryText: 'The core staffing workflow is shown from recruitment and dispatch to on-site delivery and settlement.',
+    galleryTitle: 'Service Capability Display',
+    galleryText: 'A clear view of recruitment, dispatch, property support and settlement capabilities across the workforce lifecycle.',
     gallery: [
       {
         title: 'Bulk Recruitment',
@@ -360,6 +360,7 @@ const copy = {
 }
 
 const current = computed(() => copy[lang.value])
+const partnerLoop = computed(() => [...current.value.partners, ...current.value.partners])
 
 const heroBackgroundStyle = computed(() => ({
   '--hero-image': `url(${current.value.heroImage})`,
@@ -644,11 +645,13 @@ onBeforeUnmount(() => {
           </div>
         </div>
 
-        <div class="partner-grid">
-          <article v-for="item in current.partners" :key="item">
-            <strong>{{ item }}</strong>
-            <span>{{ current.partnerBadge }}</span>
-          </article>
+        <div class="partner-carousel" aria-label="合作单位循环展示">
+          <div class="partner-track">
+            <article v-for="(item, index) in partnerLoop" :key="`${item}-${index}`">
+              <strong>{{ item }}</strong>
+              <span>{{ current.partnerBadge }}</span>
+            </article>
+          </div>
         </div>
       </section>
 
