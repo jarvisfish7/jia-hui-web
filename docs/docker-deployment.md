@@ -159,3 +159,9 @@ docker image prune
 
 ## 服务器已有部署脚本
 bash deploy.sh prod
+
+
+# 设置 HTTP 代理
+git config --global http.proxy http://127.0.0.1:7897
+# 设置 HTTPS 代理
+git config --global https://127.0.0.1:7897
